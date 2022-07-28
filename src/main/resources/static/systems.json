@@ -35,7 +35,27 @@
     "deptId": 1,
     "systemId": "3",
     "systemLogo": "zcfg.jpg",
-    "systemName": "非现场执法",
+    "systemName": "政策法规",
+    "to": "",
+    "api":"",
+    "url": "",
+    "img": "img-fxczf.jpg",
+    "data": [
+      {
+        "infoKey": "未受理案件",
+        "infoVal": 23
+      },
+      {
+        "infoKey": "未处理案件",
+        "infoVal": 23
+      }
+    ]
+  },
+  {
+    "deptId": 1,
+    "systemId": "4",
+    "systemLogo": "zcfg.jpg",
+    "systemName": "街面环境AI执法系统",
     "to": "",
     "api":"",
     "url": "",
@@ -53,7 +73,7 @@
   },
   {
     "deptId": 3,
-    "systemId": "4",
+    "systemId": "5",
     "systemLogo": "hjws.jpg",
     "systemName": "垃圾分类管理",
     "to": "",
@@ -85,9 +105,9 @@
   },
   {
     "deptId": 3,
-    "systemId": "5",
+    "systemId": "6",
     "systemLogo": "hjws.jpg",
-    "systemName": "垃圾全生命周期管理",
+    "systemName": "环卫作业管理系统",
     "to": "",
     "api":"",
     "url": "",
@@ -118,7 +138,7 @@
   },
   {
     "deptId": 3,
-    "systemId": "6",
+    "systemId": "7",
     "systemLogo": "hjws.jpg",
     "systemName": "餐厨垃圾收运管理",
     "to": "cclj",
@@ -150,7 +170,7 @@
   },
   {
     "deptId": 3,
-    "systemId": "7",
+    "systemId": "8",
     "systemLogo": "hjws.jpg",
     "systemName": "垃圾压缩站管理",
     "to": "",
@@ -182,7 +202,7 @@
   },
   {
     "deptId": 4,
-    "systemId": "8",
+    "systemId": "9",
     "systemLogo": "jgzm-logo.jpg",
     "systemName": "金牛区景观照明集中控制系统",
     "to": "jgzm",
@@ -194,7 +214,7 @@
   },
   {
     "deptId": 4,
-    "systemId": "9",
+    "systemId": "10",
     "systemLogo": "ggzp.png",
     "systemName": "广告招牌二维码管理",
     "url": "",
@@ -226,7 +246,7 @@
   },
   {
     "deptId": 5,
-    "systemId": "10",
+    "systemId": "11",
     "systemLogo": "cgzf.jpg",
     "systemName": "餐饮油烟监测服务",
     "to": "yyxt",
@@ -237,7 +257,7 @@
   },
   {
     "deptId": 5,
-    "systemId": "11",
+    "systemId": "12",
     "systemLogo": "cgzf.jpg",
     "systemName": "执法调度平台",
     "to": "",
@@ -268,7 +288,7 @@
   },
   {
     "deptId": 5,
-    "systemId": "12",
+    "systemId": "13",
     "systemLogo": "cgzf.jpg",
     "systemName": "扬尘治理大数据协同管理中心",
     "to": "ycxt",
@@ -300,7 +320,7 @@
   },
   {
     "deptId": 5,
-    "systemId": "13",
+    "systemId": "14",
     "systemLogo": "cgzf.jpg",
     "systemName": "共享单车管理平台",
     "to": "gxdc",
@@ -332,7 +352,7 @@
   },
   {
     "deptId": 6,
-    "systemId": "14",
+    "systemId": "15",
     "systemLogo": "szcg.jpg",
     "systemName": "数字化城市管理信息系统",
     "to": "szcg",
@@ -364,7 +384,7 @@
   },
   {
     "deptId": 6,
-    "systemId": "15",
+    "systemId": "16",
     "systemLogo": "szcg.jpg",
     "systemName": "诉易达",
     "to": "syd",
@@ -396,7 +416,7 @@
   },
   {
     "deptId": 6,
-    "systemId": "16",
+    "systemId": "17",
     "systemLogo": "szcg.jpg",
     "systemName": "界面图像综合应用",
     "image": "img-jmtx.jpg",
