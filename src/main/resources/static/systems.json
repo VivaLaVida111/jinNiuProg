@@ -39,7 +39,7 @@
     "to": "",
     "api":"",
     "url": "",
-    "img": "img-fxczf.jpg",
+    "image": "img-fxczf.jpg",
     "data": [
       {
         "infoKey": "未受理案件",
@@ -59,7 +59,7 @@
     "to": "",
     "api":"",
     "url": "",
-    "img": "img-fxczf.jpg",
+    "image": "img-jmhj.jpg",
     "data": [
       {
         "infoKey": "未受理案件",
@@ -75,10 +75,10 @@
     "deptId": 3,
     "systemId": "5",
     "systemLogo": "hjws.jpg",
-    "systemName": "垃圾分类管理",
-    "to": "",
+    "systemName": "生活垃圾分类",
+    "to": "shlj",
     "api":"",
-    "url": "",
+    "url": "http://101.37.246.72/denglu_shlj.exe",
     "image": "img-ljfl.jpg",
     "data": [
       {

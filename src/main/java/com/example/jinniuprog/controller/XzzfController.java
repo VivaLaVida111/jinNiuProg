@@ -42,7 +42,7 @@ public class XzzfController {
          * END 构造登陆请求中要用到的参数
          */
         // 构造执行登陆请求 发起HTTP POST请求
-        String loginUrl = "https://zhzf.chengdu.gov.cn/zhzf.manage/userLogin";
+        String loginUrl = "https://zhzf.tfryb.com/zhzf.manage/userLogin";
         HttpResponse loginRes = HttpRequest.post(loginUrl)
                 .header(Header.USER_AGENT, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36")
                 .header(Header.ACCEPT, "application/json, text/javascript, */*; q=0.01")
@@ -53,7 +53,7 @@ public class XzzfController {
         List<HttpCookie> cookies = loginRes.getCookies();
 
         //System.out.println(loginRes.getCookies().toString());
-            String queryUrl = "https://zhzf.chengdu.gov.cn/zhzf.manage/jnzf/api/zf/case/getIndexNum";
+            String queryUrl = "https://zhzf.tfryb.com/zhzf.manage/jnzf/api/zf/case/getIndexNum";
             HttpResponse queryRes = HttpRequest.get(queryUrl)
                     .header(Header.COOKIE, String.valueOf(cookies.get(0)))
                     .execute();
@@ -110,7 +110,7 @@ public class XzzfController {
         // 其他信息
         loginParam.put("password", "e10adc3949ba59abbe56e057f20f883e");
         loginParam.put("subDomain", "jnzf");
-        String loginUrl = "https://zhzf.chengdu.gov.cn/zhzf.manage/userLogin";
+        String loginUrl = "https://zhzf.tfryb.com/zhzf.manage/userLogin";
         HttpResponse loginRes = HttpRequest.post(loginUrl)
                 .header(Header.USER_AGENT, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36")
                 .header(Header.ACCEPT, "application/json, text/javascript, */*; q=0.01")
@@ -128,7 +128,7 @@ public class XzzfController {
         // 密码 Qq123456 下面也是前端加密好的结果
 
         //System.out.println(loginRes.getCookies().toString());
-        String queryUrl = "https://zhzf.chengdu.gov.cn/zhzf.manage/jnzf/api/obligation/sign/getHistory";
+        String queryUrl = "https://zhzf.tfryb.com/zhzf.manage/jnzf/api/obligation/sign/getHistory";
         HttpResponse queryRes = HttpRequest.post(queryUrl)
                 .header(Header.COOKIE, String.valueOf(cookies.get(0)))
                 .header(Header.CONTENT_TYPE,"application/json")
@@ -175,7 +175,7 @@ public class XzzfController {
         // 其他信息
         loginParam.put("password", "e10adc3949ba59abbe56e057f20f883e");
         loginParam.put("subDomain", "jnzf");
-        String loginUrl = "https://zhzf.chengdu.gov.cn/zhzf.manage/userLogin";
+        String loginUrl = "https://zhzf.tfryb.com/zhzf.manage/userLogin";
         HttpResponse loginRes = HttpRequest.post(loginUrl)
                 .header(Header.USER_AGENT, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36")
                 .header(Header.ACCEPT, "application/json, text/javascript, */*; q=0.01")
