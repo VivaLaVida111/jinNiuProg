@@ -1,61 +1,23 @@
 [
+
   {
-    "deptId": 0,
-    "systemId": "1",
-    "systemLogo": "cgzf.jpg",
-    "systemName": "视频会议系统",
-    "to": "",
-    "api":"",
-    "url": "",
-    "image": "img-sphy.jpg",
-    "data": [
-      {
-        "infoKey": "视频处理",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "正在连线",
-        "infoVal": 23
-      }
-    ]
-  },
-  {
-    "deptId": 0,
+    "deptId": 3,
     "systemId": "2",
     "systemLogo": "cgzf.jpg",
     "systemName": "成都市综合行政管理执法智慧服务平台",
     "to": "xzzf",
     "api":"/xzzf/mainInfo",
-    "url": "http://101.37.246.72/denglu_xzzf.exe",
+    "url": "/xzzf",
     "image": "img-xzzf.jpg",
     "data": [
     ]
   },
+
   {
-    "deptId": 1,
-    "systemId": "3",
-    "systemLogo": "zcfg.jpg",
-    "systemName": "政策法规",
-    "to": "",
-    "api":"",
-    "url": "",
-    "image": "img-fxczf.jpg",
-    "data": [
-      {
-        "infoKey": "未受理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "未处理案件",
-        "infoVal": 23
-      }
-    ]
-  },
-  {
-    "deptId": 1,
+    "deptId": 3,
     "systemId": "4",
     "systemLogo": "zcfg.jpg",
-    "systemName": "街面环境AI执法系统",
+    "systemName": "城管AI识别系统",
     "to": "",
     "api":"",
     "url": "",
@@ -72,13 +34,13 @@
     ]
   },
   {
-    "deptId": 3,
+    "deptId": 0,
     "systemId": "5",
     "systemLogo": "hjws.jpg",
     "systemName": "生活垃圾分类",
     "to": "shlj",
     "api":"",
-    "url": "http://101.37.246.72/denglu_shlj.exe",
+    "url": "/shlj",
     "image": "img-ljfl.jpg",
     "data": [
       {
@@ -103,47 +65,15 @@
       }
     ]
   },
-  {
-    "deptId": 3,
-    "systemId": "6",
-    "systemLogo": "hjws.jpg",
-    "systemName": "环卫作业管理系统",
-    "to": "",
-    "api":"",
-    "url": "",
-    "image": "img-ljzq.jpg",
 
-    "data": [
-      {
-        "infoKey": "未受理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "未处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "处理中案件",
-        "infoVal": 10
-      },
-      {
-        "infoKey": "已处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "已退回案件",
-        "infoVal": 23
-      }
-    ]
-  },
   {
-    "deptId": 3,
+    "deptId": 0,
     "systemId": "7",
     "systemLogo": "hjws.jpg",
     "systemName": "餐厨垃圾收运管理",
     "to": "cclj",
     "api":"",
-    "url": "http://jinniu.xbase.com.cn",
+    "url": "/cclj",
     "image": "img-cclj.jpg",
     "data":  [
       {
@@ -169,7 +99,7 @@
     ]
   },
   {
-    "deptId": 3,
+    "deptId": 0,
     "systemId": "8",
     "systemLogo": "hjws.jpg",
     "systemName": "垃圾压缩站管理",
@@ -201,19 +131,19 @@
     ]
   },
   {
-    "deptId": 4,
+    "deptId": 2,
     "systemId": "9",
     "systemLogo": "jgzm-logo.jpg",
     "systemName": "金牛区景观照明集中控制系统",
     "to": "jgzm",
     "api":"/jgzm/mainInfo",
-    "url": "http://101.37.246.72/denglu_jgzm.exe",
+    "url": "/jgzm",
     "image": "img-jgzm.jpg",
     "data":  [
     ]
   },
   {
-    "deptId": 4,
+    "deptId": 2,
     "systemId": "10",
     "systemLogo": "ggzp.png",
     "systemName": "广告招牌二维码管理",
@@ -245,21 +175,21 @@
     ]
   },
   {
-    "deptId": 5,
+    "deptId": 1,
     "systemId": "11",
     "systemLogo": "cgzf.jpg",
     "systemName": "餐饮油烟监测服务",
     "to": "yyxt",
     "api":"/yyxt/mainInfo",
-    "url": "http://101.37.246.72/denglu_yyxt.exe",
+    "url": "/yyxt",
     "image": "img-yyxt.jpg",
     "data": []
   },
   {
-    "deptId": 5,
+    "deptId": 1,
     "systemId": "12",
     "systemLogo": "cgzf.jpg",
-    "systemName": "执法调度平台",
+    "systemName": "调度指挥平台",
     "to": "",
     "api":"",
     "image": "img-zfdd.jpg",
@@ -287,13 +217,13 @@
     ]
   },
   {
-    "deptId": 5,
+    "deptId": 1,
     "systemId": "13",
     "systemLogo": "cgzf.jpg",
     "systemName": "扬尘治理大数据协同管理中心",
     "to": "ycxt",
     "api":"",
-    "url": "http://101.37.246.72/denglu_ycxt.exe",
+    "url": "/ycxt",
     "image": "img-ycxt.jpg",
     "data":  [
       {
@@ -319,13 +249,13 @@
     ]
   },
   {
-    "deptId": 5,
+    "deptId": 1,
     "systemId": "14",
     "systemLogo": "cgzf.jpg",
     "systemName": "共享单车管理平台",
     "to": "gxdc",
     "api":"",
-    "url": "http://101.37.246.72/denglu_gxdc.exe",
+    "url": "/gxdc",
     "image": "img-gxdc.jpg",
     "data":  [
       {
@@ -351,13 +281,13 @@
     ]
   },
   {
-    "deptId": 6,
+    "deptId": 3,
     "systemId": "15",
     "systemLogo": "szcg.jpg",
     "systemName": "数字化城市管理信息系统",
     "to": "szcg",
     "api":"/szcg/mainInfo",
-    "url": "http://101.37.246.72/denglu_zzcg.exe",
+    "url": "/szcg",
     "image": "img-szcg.jpg",
     "data":  [
       {
@@ -383,13 +313,13 @@
     ]
   },
   {
-    "deptId": 6,
+    "deptId": 3,
     "systemId": "16",
     "systemLogo": "szcg.jpg",
-    "systemName": "诉易达",
+    "systemName": "城管诉易达平台",
     "to": "syd",
     "api":"",
-    "url": "http://www.jncgsqbl.com/namespaces/1/categories/1",
+    "url": "/syd",
     "image": "img-syd.jpg",
     "data":  [
       {
@@ -415,10 +345,10 @@
     ]
   },
   {
-    "deptId": 6,
+    "deptId": 1,
     "systemId": "17",
     "systemLogo": "szcg.jpg",
-    "systemName": "界面图像综合应用",
+    "systemName": "街面图像综合应用",
     "image": "img-jmtx.jpg",
     "to": "",
     "api":"",

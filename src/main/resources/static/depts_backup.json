@@ -1,0 +1,37 @@
+[
+  {
+    "deptId": 0,
+    "deptLogo": "cgzf.jpg",
+    "deptName": "调试指挥"
+  },
+  {
+    "deptId": 1,
+    "deptLogo": "zcfg.jpg",
+    "deptName": "非现场执法"
+  },
+  {
+    "deptId": 2,
+    "deptLogo": "cgzf.jpg",
+    "deptName": "城市环境综合治理"
+  },
+  {
+    "deptId": 3,
+    "deptLogo": "hjws.jpg",
+    "deptName": "环境卫生监督管理"
+  },
+  {
+    "deptId": 4,
+    "deptLogo": "jgzm.jpg",
+    "deptName": "广告招牌和景观照明管理"
+  },
+  {
+    "deptId": 5,
+    "deptLogo": "cgzf.jpg",
+    "deptName": "城市管理综合执法"
+  },
+  {
+    "deptId": 6,
+    "deptLogo": "szcg.jpg",
+    "deptName": "数字城管"
+  }
+]

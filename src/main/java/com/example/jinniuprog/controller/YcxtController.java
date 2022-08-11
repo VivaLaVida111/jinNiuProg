@@ -83,10 +83,11 @@ public class YcxtController {
                 .body(JSONObject.toJSONString(loginJson))
                 .execute();
         List<HttpCookie> cookies = loginRes.getCookies();
+        HttpCookie cookie = loginRes.getCookie("passport_login");
         String key = JSON.parseObject(loginRes.body()).getString("key");
         System.out.println(key);
-        System.out.println(loginRes.body());
-        System.out.println(loginRes);
+        System.out.println(cookie);
+
         //System.out.println(loginRes.getCookies().toString());
 
        String queryUrl =  "http://221.237.182.175:8016/-/emission/get-building-lists";
@@ -104,10 +105,10 @@ public class YcxtController {
                 .header(Header.ORIGIN,"http://221.237.182.174:8011")
                 .header(Header.REFERER,"http://221.237.182.174:8011/")
                 .body(JSONObject.toJSONString(queryJson))
-                .cookie(cookies)
+                .cookie("Njc5MzMzNzk5LGFtYXBGcGxLZEpCWixub3Uyc3B6azJydGJsM20zNnkyZmF6dzRncGpkZHloZCwxNjU5NDA2ODM3LE5EUXdOakk1WXpKbU5tUXpaREZrWVRrNE56RmhZekprT0RJM1l6Rmtaams9")
                 .execute();
         JSONObject queryJsonRes = JSON.parseObject(queryRes.body());
-        System.out.println(queryRes);
+        System.out.println(queryRes.body());
 
         return JSON.parseObject(queryRes.body());
     }
