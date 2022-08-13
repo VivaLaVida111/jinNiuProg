@@ -1,7 +1,7 @@
 [
 
   {
-    "deptId": 3,
+    "deptId": 1,
     "systemId": "2",
     "systemLogo": "cgzf.jpg",
     "systemName": "成都市综合行政管理执法智慧服务平台",
@@ -16,7 +16,7 @@
   {
     "deptId": 3,
     "systemId": "4",
-    "systemLogo": "zcfg.jpg",
+    "systemLogo": "szcg.jpg",
     "systemName": "城管AI识别系统",
     "to": "",
     "api":"",
