@@ -462,5 +462,165 @@ public class youyanController {
         System.out.println("request:yyxt/getCase"+time);
         return CommonResult.success(table);
     }
+    @RequestMapping("/getMapDataYyxt")
+    public CommonResult<JSONArray> getMapData(String areaID){
+        String queryUrl = "http://47.93.222.102:9501/companies/list";
+        //page=1&limit=10&scale=&devices_id=&monitoring_status=&company_name=&area_id=&level=
+/*
+        街道查询顺序，由于要求，首先为抚琴32000，营门口38000，剩下的依次按街道查询
+*/      String[] streetId = new String[]{"510106032000","510106038000","510106024000","510106025000","510106027000","510106030000" ,"510106031000","510106035000","510106036000","510106040000","510106041000","510106042000","510106043000"};
+
+        HashMap<String, Object> queryParam = new HashMap<>();
+        queryParam.put("page","1");
+        queryParam.put("limit","10");
+        queryParam.put("scale","");
+        queryParam.put("devices_id","");
+        queryParam.put("monitoring_status","");
+        queryParam.put("company_name","");
+        queryParam.put("area_id","510106032000");
+        queryParam.put("level","4");
+        JSONArray data = new JSONArray();
+        for(int i =0;i<streetId.length;i++)
+        {   queryParam.replace("area_id",streetId[i]);
+            queryParam.replace("monitoring_status",""); //全部
+            HttpResponse queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+            JSONObject queryJsonRes = JSON.parseObject(queRes.body());
+            JSONObject makeJson = new JSONObject();
+            makeJson.put("totalCount_all",queryJsonRes.get("totalCount"));
+
+
+            queryParam.replace("monitoring_status","1"); //正常
+            queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+
+            queryJsonRes = JSON.parseObject(queRes.body());
+            makeJson.put("totalCount_normal",queryJsonRes.get("totalCount"));
+
+
+            //System.out.println(queRes.body());
+
+            queryParam.replace("monitoring_status","0"); // 离线
+            queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+            JSONObject makeJson0 = new JSONObject();
+            queryJsonRes = JSON.parseObject(queRes.body());
+
+            makeJson.put("totalCount_off",queryJsonRes.get("totalCount"));
+
+
+
+
+
+            queryParam.replace("monitoring_status","3"); //预警
+            queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+
+            queryJsonRes = JSON.parseObject(queRes.body());
+            makeJson.put("totalCount_warning",queryJsonRes.get("totalCount"));
+
+            queryParam.replace("monitoring_status","1"); //超标
+            queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+
+            queryJsonRes = JSON.parseObject(queRes.body());
+
+            makeJson.put("totalCount_over",queryJsonRes.get("totalCount"));
+
+//超标企业需要再细分，返回详细信息
+            JSONArray queryArray = queryJsonRes.getJSONArray("list");
+            makeJson.put("company_over",queryArray);
+            data.add(makeJson);
+
+        }
+
+
+        return CommonResult.success(data);
+    }
+    @RequestMapping("/test")
+    public CommonResult<JSONArray> getTest(String areaID){
+        String queryUrl = "http://47.93.222.102:9501/companies/list";
+        //page=1&limit=10&scale=&devices_id=&monitoring_status=&company_name=&area_id=&level=
+/*
+        街道查询顺序，由于要求，首先为抚琴32000，营门口38000，剩下的依次按街道查询
+*/      String[] streetId = new String[]{"510106032000","510106038000","510106024000","510106025000","510106027000","510106030000" ,"510106031000","510106035000","510106036000","510106040000","510106041000","510106042000","510106043000"};
+
+        HashMap<String, Object> queryParam = new HashMap<>();
+        queryParam.put("page","1");
+        queryParam.put("limit","10");
+        queryParam.put("scale","");
+        queryParam.put("devices_id","");
+        queryParam.put("monitoring_status","1");
+        queryParam.put("company_name","");
+        queryParam.put("area_id","510106032000");
+        queryParam.put("level","4");
+        JSONArray data = new JSONArray();
+        for(int i =0;i<streetId.length;i++)
+        {   queryParam.replace("area_id",streetId[i]);
+            queryParam.replace("monitoring_status",""); //全部
+            HttpResponse queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+            JSONObject queryJsonRes = JSON.parseObject(queRes.body());
+            JSONObject makeJson = new JSONObject();
+            makeJson.put("totalCount_all",queryJsonRes.get("totalCount"));
+
+
+            queryParam.replace("monitoring_status","1"); //正常
+            queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+
+            queryJsonRes = JSON.parseObject(queRes.body());
+            makeJson.put("totalCount_normal",queryJsonRes.get("totalCount"));
+
+
+            //System.out.println(queRes.body());
+
+            queryParam.replace("monitoring_status","0"); //离线
+            queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+            JSONObject makeJson0 = new JSONObject();
+            queryJsonRes = JSON.parseObject(queRes.body());
+
+            makeJson.put("totalCount_off",queryJsonRes.get("totalCount"));
+            queryParam.replace("monitoring_status","3"); //预警
+            queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+
+            queryJsonRes = JSON.parseObject(queRes.body());
+            makeJson.put("totalCount_warning",queryJsonRes.get("totalCount"));
+
+            queryParam.replace("monitoring_status","2"); // 超标
+            queRes = HttpRequest.get(queryUrl)
+                    .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
+                    .form(queryParam).execute();
+
+            queryJsonRes = JSON.parseObject(queRes.body());
+
+            makeJson.put("totalCount_over",queryJsonRes.get("totalCount"));
+            //超标企业需要再细分，返回详细信息
+            JSONArray queryArray = queryJsonRes.getJSONArray("list");
+            makeJson.put("company_over",queryArray);
+
+
+
+
+
+            data.add(makeJson);
+
+
+        }
+
+
+        return CommonResult.success(data);
+    }
 
 }

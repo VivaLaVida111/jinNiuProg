@@ -2452,4 +2452,79 @@ public class szcgController {
         return JSON.parseObject(queryRes_case_week_ended.body());
     }
 
+    @RequestMapping("/getMapDataSzcg")
+    public CommonResult<JSONArray> getMapDataSzcg(){
+        HashMap<String, Object> loginParam = new HashMap<>();
+        Date calDate= new Date(System.currentTimeMillis());
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter_month = new SimpleDateFormat("yyyy-MM");
+        SimpleDateFormat formatter_time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String time = formatter_time.format(calDate);
+        String date = formatter.format(calDate);
+        String date_month = formatter_month.format(calDate);
+        String date_week= formatter.format(DateUtil.getBeginDayOfWeek());
+        // 用户名 金牛区管理员刘磊 前端有一个des加密 这是前端直接加密好的结果
+        loginParam.put("u", "F5l8jhNK7iDbfc9WTXMPRECj+YgDipnLCoOT0GPuct39A0RiZQ/wJyS8zXFg8ogrJMxKmoGHE3UBuGk3k+bmPnpVgS+dRNsWWYg1VvvspUo=");
+        // 密码 Qq123456 下面也是前端加密好的结果
+        loginParam.put("p", "N8V9yV9NQFVb8CxUPEFocg==");
+        // 其他信息
+        loginParam.put("browserVersion", "firefox/101.0");
+        loginParam.put("osVersion", "Mac");
+        loginParam.put("validCode", "");
+        loginParam.put("ip", "");
+        loginParam.put("validWay", "0");
+        /*
+         * END 构造登陆请求中要用到的参数
+         */
+        // 构造执行登陆请求 发起HTTP POST请求 CommonResult <List<Table>>
+
+        String loginUrl = "http://171.221.172.74:6888/eUrbanMIS/login/validpassword";
+        HttpResponse loginRes = HttpRequest.post(loginUrl)
+                .header(Header.USER_AGENT, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36")
+                .header(Header.ACCEPT, "application/json, text/javascript, */*; q=0.01")
+                .header(Header.CONTENT_TYPE, "application/x-www-form-urlencoded; charset=UTF-8")
+                .header(Header.CONTENT_LENGTH, "225")
+                .header(Header.HOST, "171.221.172.74:6888")
+                .header(Header.ORIGIN, "http://171.221.172.74:6888")
+                .header(Header.REFERER, "http://171.221.172.74:6888/eUrbanMIS/main.htm")
+                .form(loginParam)
+                .execute();
+        List<Table> table = new ArrayList<>();
+        List<HttpCookie> cookies = loginRes.getCookies();
+        String queryUrl_day ="http://171.221.172.74:6888/eUrbanMIS/home/stat/stat/excutestat?queryID=253&missionID=-1&condParams=%257B%2522queryConds%2522%3A%255B%257B%2522condId%2522%3A%25222%2522%2C%2522fieldName%2522%3A%2522district_name%2522%2C%2522compType%2522%3A%2522%25E7%25AD%2589%25E4%25BA%258E%2522%2C%2522dataTypeID%2522%3A%2522124%2522%2C%2522fieldTypeInfo%2522%3A%2522%24%24vc_region_district%24item_id%240%24item_name%2522%2C%2522values%2522%3A%255B%2522%27%25E9%2587%2591%25E7%2589%259B%25E5%258C%25BA%27%2522%255D%2C%2522condProperty%2522%3A%252216%2522%2C%2522mutiCond%2522%3A%25221%2522%2C%2522condType%2522%3A%25220%2522%2C%2522outParams%2522%3A%2522%2522%2C%2522fixTimeCond%2522%3A%25220%2522%2C%2522isFromMobile%2522%3A%25220%2522%2C%2522componentType%2522%3A%25220%2522%2C%2522timeCondSql%2522%3A%2522105%24%25E6%2589%2580%25E5%25B1%259E%25E5%258C%25BA%25E5%258E%25BF%2522%257D%2C%257B%2522condId%2522%3A%25223%2522%2C%2522fieldName%2522%3A%2522create_time%2522%2C%2522compType%2522%3A%2522%25E5%25A4%25A7%25E4%25BA%258E%2522%2C%2522dataTypeID%2522%3A%252211%2522%2C%2522values%2522%3A%255B%2522"+date+"%252000%3A00%3A00%2522%255D%2C%2522condProperty%2522%3A%25220%2522%2C%2522mutiCond%2522%3A%25220%2522%2C%2522condType%2522%3A%25220%2522%2C%2522outParams%2522%3A%2522%2522%2C%2522fixTimeCond%2522%3A%25220%2522%2C%2522isFromMobile%2522%3A%25220%2522%2C%2522componentType%2522%3A%25220%2522%2C%2522timeCondSql%2522%3A%2522%2522%257D%255D%257D&hidenCond=ZXZlbnRfc3JjX2lkIGluICgnNzEnLCcxJywnMzQnLCc3Nicp&_=1657245092933";
+        HttpResponse queryRes_0 = HttpRequest.get(queryUrl_day)
+                .cookie(cookies)
+                .execute();
+        JSONArray data = new JSONArray();
+        JSONArray queryJsonRes_0 = JSON.parseObject(queryRes_0.body()).getJSONObject("data").getJSONObject("resultInfo").getJSONArray("dataStr");
+
+        int size0;
+        int num1 =0;
+        for (size0=0;size0<queryJsonRes_0.size();size0++){
+             JSONObject result = queryJsonRes_0.getJSONObject(size0);
+
+               if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("抚琴街道办事处"))
+               {
+                   JSONObject makeJson_0 = new JSONObject();
+                   makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                   makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                   makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                   makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                   makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                   data.add(makeJson_0);
+               }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("营门口街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+
+        }
+        return CommonResult.success(data);
+    }
 }
