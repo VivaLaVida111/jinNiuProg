@@ -248,29 +248,9 @@
         "systemId": "9",
         "systemLogo": "jgzm.jpg",
         "systemName": "广告招牌二维码管理",
-        "to": "",
-        "api":"",
+        "to": "ggzp",
+        "api":"/ggzp/mainInfo",
         "data":  [
-          {
-            "infoKey": "未受理案件",
-            "infoVal": 23
-          },
-          {
-            "infoKey": "未处理案件",
-            "infoVal": 23
-          },
-          {
-            "infoKey": "处理中案件",
-            "infoVal": 10
-          },
-          {
-            "infoKey": "已处理案件",
-            "infoVal": 23
-          },
-          {
-            "infoKey": "已退回案件",
-            "infoVal": 23
-          }
         ]
       }
     ]

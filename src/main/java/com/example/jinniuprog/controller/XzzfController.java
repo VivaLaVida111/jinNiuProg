@@ -92,7 +92,6 @@ public class XzzfController {
             data.add(makeJson4);
 
             return CommonResult.success(data);
-
     }
 
     @RequestMapping("/getHistory")
@@ -159,6 +158,45 @@ public class XzzfController {
 
 
         return CommonResult.success(table);
+    }
+    @RequestMapping("/getMapDataXzzf")
+    public JSONArray getXzzfMapData(){
+        Date calDate= new Date(System.currentTimeMillis());
+        long time = System.currentTimeMillis()/1000;
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter_month = new SimpleDateFormat("yyyy-MM");
+        SimpleDateFormat formatter_time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String date = formatter.format(calDate);
+        String date_month = formatter_month.format(calDate);
+        JSONArray data = new JSONArray();
+        HashMap<String, Object> loginParam = new HashMap<>();
+        loginParam.put("userid", "460230");
+        // 其他信息
+        loginParam.put("password", "e10adc3949ba59abbe56e057f20f883e");
+        loginParam.put("subDomain", "jnzf");
+
+        /*
+         * END 构造登陆请求中要用到的参数
+         */
+        // 构造执行登陆请求 发起HTTP POST请求
+        String loginUrl = "https://zhzf.tfryb.com/zhzf.manage/userLogin";
+        HttpResponse loginRes = HttpRequest.post(loginUrl)
+                .header(Header.USER_AGENT, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36")
+                .header(Header.ACCEPT, "application/json, text/javascript, */*; q=0.01")
+                .header(Header.CONTENT_TYPE, "application/x-www-form-urlencoded; charset=UTF-8")
+                .header(Header.CONTENT_LENGTH, "225")
+                .form(loginParam)
+                .execute();
+        List<HttpCookie> cookies = loginRes.getCookies();
+
+        //System.out.println(loginRes.getCookies().toString());
+        String queryUrl = "https://zhzf.tfryb.com/zhzf.manage/jnzf/api/zf/case/getIndexNum";
+        HttpResponse queryRes = HttpRequest.get(queryUrl)
+                .header(Header.COOKIE, String.valueOf(cookies.get(0)))
+                .execute();
+        JSONObject queryJson = JSONObject.parseObject(queryRes.body());
+        System.out.println(queryJson);
+        return data;
     }
     @RequestMapping("/result")
     public JSONObject getResult(){

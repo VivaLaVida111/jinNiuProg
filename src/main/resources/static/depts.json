@@ -1,23 +1,23 @@
 [
   {
     "deptId": 0,
-    "deptLogo": "hjws.jpg",
+    "deptLogo": "hjws.png",
     "deptName": "环境卫生"
   },
   {
     "deptId": 1,
-    "deptLogo": "cgzf.jpg",
+    "deptLogo": "srzx.png",
     "deptName": "市容秩序"
   },
   {
     "deptId": 2,
-    "deptLogo": "jgzm.jpg",
+    "deptLogo": "jgzm.png",
     "deptName": "景观照明"
   },
 
   {
     "deptId": 3,
-    "deptLogo": "szcg.jpg",
+    "deptLogo": "szcg.png",
     "deptName": "数字城管"
   }
 ]

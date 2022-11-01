@@ -2524,6 +2524,117 @@ public class szcgController {
                 data.add(makeJson_0);
             }
 
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("西安路街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("西华街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("荷花池街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("驷马桥街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("茶店子街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("九里堤街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("五块石街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("金泉街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("沙河源街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("天回镇街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
+            if (queryJsonRes_0.getJSONObject(size0).getString("STREET_NAME").equals("凤凰山街道办事处"))
+            {
+                JSONObject makeJson_0 = new JSONObject();
+                makeJson_0.put("REPORT_NUM",result.get("REPORT_NUM"));
+                makeJson_0.put("INTIME_DISPOSE_NUM",result.get("INTIME_DISPOSE_NUM"));
+                makeJson_0.put("DISPOSE_LV",result.get("DISPOSE_LV"));
+                makeJson_0.put("NEED_DISPOSE_NUM",result.get("NEED_DISPOSE_NUM"));
+                makeJson_0.put("TO_DISPOSE_NUM",result.get("TO_DISPOSE_NUM"));
+                data.add(makeJson_0);
+            }
         }
         return CommonResult.success(data);
     }

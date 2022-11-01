@@ -4,7 +4,7 @@
     "deptId": 1,
     "systemId": "2",
     "systemLogo": "cgzf.jpg",
-    "systemName": "成都市综合行政管理执法智慧服务平台",
+    "systemName": "综合行政管理执法智慧管家",
     "to": "xzzf",
     "api":"/xzzf/mainInfo",
     "url": "/xzzf",
@@ -17,7 +17,7 @@
     "deptId": 3,
     "systemId": "4",
     "systemLogo": "szcg.jpg",
-    "systemName": "城管AI识别系统",
+    "systemName": "城管AI识别管家",
     "to": "",
     "api":"",
     "url": "",
@@ -37,7 +37,7 @@
     "deptId": 0,
     "systemId": "5",
     "systemLogo": "hjws.jpg",
-    "systemName": "生活垃圾分类",
+    "systemName": "生活垃圾分类管家",
     "to": "shlj",
     "api":"",
     "url": "/shlj",
@@ -70,7 +70,7 @@
     "deptId": 0,
     "systemId": "7",
     "systemLogo": "hjws.jpg",
-    "systemName": "餐厨垃圾收运管理",
+    "systemName": "餐厨垃圾收运管家",
     "to": "cclj",
     "api":"",
     "url": "/cclj",
@@ -102,39 +102,20 @@
     "deptId": 0,
     "systemId": "8",
     "systemLogo": "hjws.jpg",
-    "systemName": "垃圾压缩站管理",
-    "to": "",
-    "api":"",
-    "url": "",
+    "systemName": "垃圾数据归集管家",
+    "to": "lzj",
+    "api":"/lzj/mainInfo",
+    "url": "/lzj",
     "image": "img-ljys.jpg",
     "data": [
-      {
-        "infoKey": "未受理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "未处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "处理中案件",
-        "infoVal": 10
-      },
-      {
-        "infoKey": "已处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "已退回案件",
-        "infoVal": 23
-      }
+
     ]
   },
   {
     "deptId": 2,
     "systemId": "9",
     "systemLogo": "jgzm-logo.jpg",
-    "systemName": "金牛区景观照明集中控制系统",
+    "systemName": "景观照明集中控制管家",
     "to": "jgzm",
     "api":"/jgzm/mainInfo",
     "url": "/jgzm",
@@ -146,39 +127,20 @@
     "deptId": 2,
     "systemId": "10",
     "systemLogo": "ggzp.png",
-    "systemName": "广告招牌二维码管理",
-    "url": "",
-    "to": "",
-    "api":"",
+    "systemName": "广告招牌二维码管家",
+    "url": "/ggzp",
+    "to": "ggzp",
+    "api":"/ggzp/mainInfo",
     "image": "img-ggzp.jpg",
     "data":  [
-      {
-        "infoKey": "未受理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "未处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "处理中案件",
-        "infoVal": 10
-      },
-      {
-        "infoKey": "已处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "已退回案件",
-        "infoVal": 23
-      }
+
     ]
   },
   {
     "deptId": 1,
     "systemId": "11",
     "systemLogo": "cgzf.jpg",
-    "systemName": "餐饮油烟监测服务",
+    "systemName": "餐饮油烟管家",
     "to": "yyxt",
     "api":"/yyxt/mainInfo",
     "url": "/yyxt",
@@ -189,7 +151,7 @@
     "deptId": 1,
     "systemId": "12",
     "systemLogo": "cgzf.jpg",
-    "systemName": "调度指挥平台",
+    "systemName": "调度指挥管家",
     "to": "",
     "api":"",
     "image": "img-zfdd.jpg",
@@ -220,7 +182,7 @@
     "deptId": 1,
     "systemId": "13",
     "systemLogo": "cgzf.jpg",
-    "systemName": "扬尘治理大数据协同管理中心",
+    "systemName": "扬尘治理大数据协同管家",
     "to": "ycxt",
     "api":"",
     "url": "/ycxt",
@@ -252,7 +214,7 @@
     "deptId": 1,
     "systemId": "14",
     "systemLogo": "cgzf.jpg",
-    "systemName": "共享单车管理平台",
+    "systemName": "共享单车管家",
     "to": "gxdc",
     "api":"",
     "url": "/gxdc",
@@ -284,7 +246,7 @@
     "deptId": 3,
     "systemId": "15",
     "systemLogo": "szcg.jpg",
-    "systemName": "数字化城市管理信息系统",
+    "systemName": "数字化城市信息管家",
     "to": "szcg",
     "api":"/szcg/mainInfo",
     "url": "/szcg",
@@ -316,7 +278,7 @@
     "deptId": 3,
     "systemId": "16",
     "systemLogo": "szcg.jpg",
-    "systemName": "城管诉易达平台",
+    "systemName": "城管诉易达管家",
     "to": "syd",
     "api":"",
     "url": "/syd",
@@ -348,7 +310,7 @@
     "deptId": 1,
     "systemId": "17",
     "systemLogo": "szcg.jpg",
-    "systemName": "街面图像综合应用",
+    "systemName": "街面图像综合应用管家",
     "image": "img-jmtx.jpg",
     "to": "",
     "api":"",

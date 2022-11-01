@@ -523,7 +523,7 @@ public class youyanController {
             queryJsonRes = JSON.parseObject(queRes.body());
             makeJson.put("totalCount_warning",queryJsonRes.get("totalCount"));
 
-            queryParam.replace("monitoring_status","1"); //超标
+            queryParam.replace("monitoring_status","2"); //超标
             queRes = HttpRequest.get(queryUrl)
                     .header(Header.AUTHORIZATION,"62a843bfd1b3d61005520385")
                     .form(queryParam).execute();
