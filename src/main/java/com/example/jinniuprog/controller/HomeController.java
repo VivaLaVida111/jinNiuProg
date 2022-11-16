@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -42,7 +43,32 @@ public class HomeController {
     public CommonResult<JSONArray> getSystemList(){
         String url = "static/systems.json";
         JSONArray allJson = jsonService.parseJson(url);
+        String loginUrl = "http://101.37.246.72:8079/api/auth/login";
+        JSONObject loginJson = new JSONObject();
+        loginJson.put("name", "lyh");
+        // 其他信息
+        loginJson.put("password", "string");
+        HttpResponse loginRes = HttpRequest.post(loginUrl)
+                .header(Header.USER_AGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.35")
+                .header(Header.ACCEPT, "application/json, text/plain, */*")
+                .header(Header.CONTENT_TYPE, "application/json")
+                .header(Header.CONTENT_LENGTH, "225")
+                .header(Header.ORIGIN, "http://101.37.246.72:8079")
+                .header(Header.HOST,"101.37.246.72:8079")
+//                .header(Header.COOKIE,"HOTIME=bfd0e06c92818105854d1a9ac17bc90a")
+                .header(Header.REFERER,"http://101.37.246.72:8079/login/")
+
+                .header("isToken","false")
+                .header("TENANT-ID","1")
+                .body(JSONObject.toJSONString(loginJson))
+                .execute();
+
+
+
+        System.out.println(loginRes.body());
+
         return CommonResult.success(allJson);
+
     }
     @RequestMapping("/getCookie")
     public JSONObject getCookie(String url){

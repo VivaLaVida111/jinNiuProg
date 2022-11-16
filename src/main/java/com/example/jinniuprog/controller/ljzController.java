@@ -44,7 +44,6 @@ public class ljzController {
         for (int i=0;i<queryJsonRes_1.size();i++){
             total_hongxing+=queryJsonRes_1.getJSONObject(i).getDouble("netWeight");
         }
-        System.out.println(total_hongxing);
         JSONObject makeJson = new JSONObject();
         makeJson.put("infoKey","红星垃圾站数据");
         makeJson.put("infoVal",total_hongxing/1000+" 吨");

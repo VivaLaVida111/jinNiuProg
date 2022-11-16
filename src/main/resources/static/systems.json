@@ -39,30 +39,11 @@
     "systemLogo": "hjws.jpg",
     "systemName": "生活垃圾分类管家",
     "to": "shlj",
-    "api":"",
+    "api":"/shlj/mainInfo",
     "url": "/shlj",
     "image": "img-ljfl.jpg",
     "data": [
-      {
-        "infoKey": "未受理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "未处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "处理中案件",
-        "infoVal": 10
-      },
-      {
-        "infoKey": "已处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "已退回案件",
-        "infoVal": 23
-      }
+
     ]
   },
 
@@ -72,30 +53,11 @@
     "systemLogo": "hjws.jpg",
     "systemName": "餐厨垃圾收运管家",
     "to": "cclj",
-    "api":"",
+    "api":"/cclj/mainInfo",
     "url": "/cclj",
     "image": "img-cclj.jpg",
     "data":  [
-      {
-        "infoKey": "未受理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "未处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "处理中案件",
-        "infoVal": 10
-      },
-      {
-        "infoKey": "已处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "已退回案件",
-        "infoVal": 23
-      }
+
     ]
   },
   {
@@ -152,8 +114,9 @@
     "systemId": "12",
     "systemLogo": "cgzf.jpg",
     "systemName": "调度指挥管家",
-    "to": "",
+    "to": "ddzh",
     "api":"",
+    "url": "/ddzh",
     "image": "img-zfdd.jpg",
     "data":  [
       {
@@ -221,25 +184,23 @@
     "image": "img-gxdc.jpg",
     "data":  [
       {
-        "infoKey": "未受理案件",
-        "infoVal": 23
+        "infoKey": "单车惩罚记录",
+        "infoVal": "23000条"
       },
       {
-        "infoKey": "未处理案件",
-        "infoVal": 23
+        "infoKey": "单车点位数量",
+        "infoVal": "2000"
       },
       {
-        "infoKey": "处理中案件",
-        "infoVal": 10
+        "infoKey": "单车总量",
+        "infoVal": "12432"
       },
       {
-        "infoKey": "已处理案件",
-        "infoVal": 23
-      },
-      {
-        "infoKey": "已退回案件",
-        "infoVal": 23
+        "infoKey": "设计容量",
+        "infoVal": "1243"
       }
+
+
     ]
   },
   {
