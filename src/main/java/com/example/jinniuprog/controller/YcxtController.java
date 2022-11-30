@@ -108,7 +108,6 @@ public class YcxtController {
                 .cookie("Njc5MzMzNzk5LGFtYXBGcGxLZEpCWixub3Uyc3B6azJydGJsM20zNnkyZmF6dzRncGpkZHloZCwxNjU5NDA2ODM3LE5EUXdOakk1WXpKbU5tUXpaREZrWVRrNE56RmhZekprT0RJM1l6Rmtaams9")
                 .execute();
         JSONObject queryJsonRes = JSON.parseObject(queryRes.body());
-        System.out.println(queryRes.body());
 
         return JSON.parseObject(queryRes.body());
     }

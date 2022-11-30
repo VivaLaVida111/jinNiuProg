@@ -7,8 +7,9 @@
     "systemName": "综合行政管理执法智慧管家",
     "to": "xzzf",
     "api":"/xzzf/mainInfo",
-    "url": "/xzzf",
+    "url": "https://zhzf.tfryb.com/#/login",
     "image": "img-xzzf.jpg",
+    "isLogin" : 0,
     "data": [
     ]
   },
@@ -40,8 +41,9 @@
     "systemName": "生活垃圾分类管家",
     "to": "shlj",
     "api":"/shlj/mainInfo",
-    "url": "/shlj",
+    "url": "https://garbage.fbrrr.com/#/auth/login?target=%2FbusinessStatement%2FrecycleReports",
     "image": "img-ljfl.jpg",
+    "isLogin" : 0,
     "data": [
 
     ]
@@ -54,8 +56,9 @@
     "systemName": "餐厨垃圾收运管家",
     "to": "cclj",
     "api":"/cclj/mainInfo",
-    "url": "/cclj",
+    "url": "http://jn-gov.xbase.com.cn:10813/#/user/login/redirect=%2F",
     "image": "img-cclj.jpg",
+    "isLogin" : 0,
     "data":  [
 
     ]
@@ -65,9 +68,10 @@
     "systemId": "8",
     "systemLogo": "hjws.jpg",
     "systemName": "垃圾数据归集管家",
+    "isLogin" : 1,
     "to": "lzj",
     "api":"/lzj/mainInfo",
-    "url": "/lzj",
+    "url": "http://101.37.246.72:8078/#/home/map",
     "image": "img-ljys.jpg",
     "data": [
 
@@ -78,9 +82,10 @@
     "systemId": "9",
     "systemLogo": "jgzm-logo.jpg",
     "systemName": "景观照明集中控制管家",
+    "isLogin" : 1,
     "to": "jgzm",
     "api":"/jgzm/mainInfo",
-    "url": "/jgzm",
+    "url": "http://171.221.172.143:180/#/login?user=HH&pd=oLHjPGJkLwihgAjddGnGqDEMk4z6MT0Xgca2A%2BBscT9xkVQJO7uy3u2lldkgs8hWvYIk8RRP7WpVs02WlJs8c52C1DkI0Vev0oe7JW0UnrLzbqZOMJwLoTUt7nTChcfU4H%2FoF8lvUuJFNDrstIHyM%2BnAWx1fuuNUEU%2B2uBqitqk%3D",
     "image": "img-jgzm.jpg",
     "data":  [
     ]
@@ -90,10 +95,11 @@
     "systemId": "10",
     "systemLogo": "ggzp.png",
     "systemName": "广告招牌二维码管家",
-    "url": "/ggzp",
+    "url": "http://175.153.176.27:18802/api/login/c2luZ2xlTG9naW46c2luZ2xlTG9naW4=",
     "to": "ggzp",
     "api":"/ggzp/mainInfo",
     "image": "img-ggzp.jpg",
+    "isLogin" : 1,
     "data":  [
 
     ]
@@ -105,8 +111,9 @@
     "systemName": "餐饮油烟管家",
     "to": "yyxt",
     "api":"/yyxt/mainInfo",
-    "url": "/yyxt",
+    "url": "http://47.93.222.102/loginauto.html?uname=18981967017&pw=9876hu",
     "image": "img-yyxt.jpg",
+    "isLogin" : 1,
     "data": []
   },
   {
@@ -114,9 +121,10 @@
     "systemId": "12",
     "systemLogo": "cgzf.jpg",
     "systemName": "调度指挥管家",
+    "isLogin" : 1,
     "to": "ddzh",
     "api":"",
-    "url": "/ddzh",
+    "url": "http://101.37.246.72:8079/map/",
     "image": "img-zfdd.jpg",
     "data":  [
       {
@@ -148,8 +156,9 @@
     "systemName": "扬尘治理大数据协同管家",
     "to": "ycxt",
     "api":"",
-    "url": "/ycxt",
+    "url": "http://221.237.182.174:8011/",
     "image": "img-ycxt.jpg",
+    "isLogin" : 0,
     "data":  [
       {
         "infoKey": "未受理案件",
@@ -178,6 +187,7 @@
     "systemId": "14",
     "systemLogo": "cgzf.jpg",
     "systemName": "共享单车管家",
+    "isLogin" : 1,
     "to": "gxdc",
     "api":"",
     "url": "/gxdc",
@@ -208,9 +218,10 @@
     "systemId": "15",
     "systemLogo": "szcg.jpg",
     "systemName": "数字化城市信息管家",
+    "isLogin" : 0,
     "to": "szcg",
     "api":"/szcg/mainInfo",
-    "url": "/szcg",
+    "url": "http://171.221.172.74:6888/eUrbanMIS/main.htm",
     "image": "img-szcg.jpg",
     "data":  [
       {
@@ -241,6 +252,7 @@
     "systemLogo": "szcg.jpg",
     "systemName": "城管诉易达管家",
     "to": "syd",
+    "isLogin" : 1,
     "api":"",
     "url": "/syd",
     "image": "img-syd.jpg",
@@ -273,6 +285,7 @@
     "systemLogo": "szcg.jpg",
     "systemName": "街面图像综合应用管家",
     "image": "img-jmtx.jpg",
+    "isLogin" : 0,
     "to": "",
     "api":"",
     "url": "",

@@ -37,8 +37,8 @@ public class youyanController {
     public CommonResult<JSONArray> getMainInfo(){
         String loginUrl = "http://47.93.222.102:9501/login";
         HashMap<String, Object> loginParam = new HashMap<>();
-        loginParam.put("account","13908173345");
-        loginParam.put("pwd","9876");
+        loginParam.put("account","18981967017");
+        loginParam.put("pwd","9876huhuhu");
         HttpResponse loginRes = HttpRequest.post(loginUrl)
                 .header(Header.USER_AGENT, "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36")
                 .header(Header.ACCEPT, "application/json, text/javascript, */*; q=0.01")
