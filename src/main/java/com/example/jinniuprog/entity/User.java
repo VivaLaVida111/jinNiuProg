@@ -1,56 +1,50 @@
 package com.example.jinniuprog.entity;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author luo
+ * @since 2022-12-03
+ */
+@Getter
+@Setter
+  public class User implements Serializable {
 
-public class User {
-    private Integer id;
-    private String userName;
-    private String password;
-    private List<Role> roles;
+    private static final long serialVersionUID = 1L;
+
+      /**
+     * 系统用户id
+     */
+        @TableId(value = "id", type = IdType.AUTO)
+      private Integer id;
+
+      /**
+     * 系统用户名
+     */
+      private String name;
+
+      /**
+     * 用户密码
+     */
+      private String password;
+
+      /**
+     * 该用户的电话号码
+     */
+      private String telephone;
+
+    private LocalDateTime createTime;
+
+    private LocalDateTime updateTime;
 
 
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    private Collection<?extends GrantedAuthority> getAuthorities(){
-        List<SimpleGrantedAuthority> authorities= new ArrayList<>();
-        for (Role role : roles){
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return authorities;
-    }
 }

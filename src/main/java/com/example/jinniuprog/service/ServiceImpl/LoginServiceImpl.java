@@ -17,11 +17,11 @@ public class LoginServiceImpl implements LoginService {
     UserDao userdao;
     @Override
     public String login(User user) {
-        if (user == null || user.getUserName().isEmpty()) {
+        if (user == null || user.getName().isEmpty()) {
             return "用户名不能为空!";
         }
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword()));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getName(), user.getPassword()));
 
         } catch (Exception e) {
             if (e instanceof BadCredentialsException) {
@@ -31,8 +31,8 @@ public class LoginServiceImpl implements LoginService {
                 return e.getMessage();
             }
         }
-        user.setRoles(userdao.getUserRolesByUserId(user.getId()));
-        System.out.println(user.getRoles());
+        //user.setRoles(userdao.getUserRolesByUserId(user.getId()));
+        //System.out.println(user.getRoles());
         return "登录成功";
     }
 

@@ -19,6 +19,14 @@ public class CommonResult <T>{
         return new CommonResult<T>(errorCode.getCode(), errorCode.getMessage(), null);
     }
 
+    public static <T> CommonResult<T> unauthorized() {
+        return new CommonResult<T>(ResultCode.UNAUTHORIZED.getCode(), ResultCode.UNAUTHORIZED.getMessage(), null);
+    }
+
+    public static <T> CommonResult<T> forbidden() {
+        return new CommonResult<T>(ResultCode.FORBIDDEN.getCode(), ResultCode.FORBIDDEN.getMessage(), null);
+    }
+
     public long getCode() {
         return code;
     }

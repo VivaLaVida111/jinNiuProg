@@ -24,12 +24,14 @@ public class CustomUserServiceImpl implements CustomUserService  {
             throw new UsernameNotFoundException("用户名不存在！");
         }
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        /*
         for(Role role :user.getRoles()){
             authorities.add((new SimpleGrantedAuthority(role.getName())));
             System.out.println(role.getName());
         }
+         */
 
-         return new org.springframework.security.core.userdetails.User(user.getUserName(),
+         return new org.springframework.security.core.userdetails.User(user.getName(),
                 user.getPassword(), authorities);
 
     }

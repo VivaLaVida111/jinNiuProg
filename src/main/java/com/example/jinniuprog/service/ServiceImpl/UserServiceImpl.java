@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String updatePassword(User user) {
-        if (user==null||user.getUserName().isEmpty() || user.getPassword().isEmpty()) {
+        if (user==null||user.getName().isEmpty() || user.getPassword().isEmpty()) {
             return "用户名或密码为空";
         }
         //加密

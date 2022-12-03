@@ -1,105 +1,133 @@
 package com.example.jinniuprog.config;
 
-import com.example.jinniuprog.service.CustomUserService;
-import com.example.jinniuprog.service.ServiceImpl.CustomUserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.jinniuprog.component.JwtAuthenticationTokenFilter;
+import com.example.jinniuprog.component.RestAuthenticationEntryPoint;
+import com.example.jinniuprog.component.RestfulAccessDeniedHandler;
+import com.example.jinniuprog.dto.UserDetailsImpl;
+import com.example.jinniuprog.entity.User;
+import com.example.jinniuprog.service.AuthService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.*;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import java.time.Duration;
-import java.util.Arrays;
+import javax.annotation.Resource;
+import java.util.List;
 
 
+/**
+ * SpringSecurity的配置
+ */
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private CustomUserService customUserService;
+    @Resource
+    private AuthService authService;
+    @Resource
+    private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
+    @Resource
+    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
-    /**
-     * 安全性设置
-     *
-     * @param httpSecurity
-     * @throws Exception
-     */
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.cors().and().csrf().disable().
-        authorizeRequests().anyRequest().permitAll();
-              /*  .formLogin()
-                .defaultSuccessUrl("/youyan/getCompanyList")
+        httpSecurity.csrf()// 由于使用的是JWT，我们这里不需要csrf
+                .disable()
+                .sessionManagement()// 基于token，所以不需要session
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login.html","/login").permitAll()
-                .antMatchers("/user/*").hasAnyRole("ADMIN","USER")
-                .antMatchers("/youyan/*").hasAnyRole("ADMIN","USER")
-                .anyRequest().authenticated()
-                .and().httpBasic();*/
+                .antMatchers(HttpMethod.GET, // 允许对于网站静态资源的无授权访问
+                        "/",
+                        "/*.html",
+                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js",
+                        "/swagger-resources/**",
+                        "/v2/api-docs/**"
+                )
+                .permitAll()
+                .antMatchers("/auth/login", "/auth/register")// 对登录注册要允许匿名访问
+                .permitAll()
+                .antMatchers(HttpMethod.OPTIONS)//跨域请求会先进行一次options请求
+                .permitAll()
+//                .antMatchers("/**")//测试时全部运行访问
+//                .permitAll()
+                .anyRequest()// 除上面外的所有请求全部需要鉴权认证
+                .authenticated();
+        // 禁用缓存
+        httpSecurity.headers().cacheControl();
+        // 添加JWT filter
+        httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        //添加自定义未授权和未登录结果返回
+        httpSecurity.exceptionHandling()
+                .accessDeniedHandler(restfulAccessDeniedHandler)
+                .authenticationEntryPoint(restAuthenticationEntryPoint);
 
-                // CSRF禁用
-                // 从Spring Security 4.0开始，默认情况下会启用CSRF保护，以防止CSRF攻击应用程序，Spring Security CSRF会针对PATCH，POST，PUT和DELETE方法进行防护。
     }
-    /**
-     * 身份认证接口
-     *
-     * @param auth
-     * @throws Exception
-     */
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                // 从数据库读取的用户进行身份认证
-                .userDetailsService(customUserService)
-                //加密方法(强散列哈希加密)
-                .passwordEncoder(new BCryptPasswordEncoder());
+        auth.userDetailsService(userDetailsService())
+                .passwordEncoder(passwordEncoder());
     }
 
     /**
-     * 解决 无法直接注入 AuthenticationManager
-     *
-     * @return
-     * @throws Exception
+     * SecurityConfig默认会将websocket的访问阻挡掉，因此需要设置权限
+     * @param webSecurity
      */
+    @Override
+    public void configure(WebSecurity webSecurity) {
+        webSecurity.ignoring().antMatchers(
+                "/websocket/**"
+        );
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        //获取登录用户信息
+        return username -> {
+            User user = authService.getUserByName(username);
+            if (user != null) {
+                /*
+                List<Permission> permissionList = authService.getPermissionList(user.getId());
+                if (permissionList == null) {
+                    throw new UsernameNotFoundException("permissionList is empty");
+                }
+                 */
+                return new UserDetailsImpl(user);
+            }
+            throw new UsernameNotFoundException("用户名错误");
+        };
+    }
+
+    @Bean
+    public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter(){
+        return new JwtAuthenticationTokenFilter();
+    }
+
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
-    /**
-     * 强散列哈希加密实现
-     */
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
- /*   @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("*");//修改为添加而不是设置，* 最好改为实际的需要，我这是非生产配置，所以粗暴了一点
-        configuration.addAllowedMethod("*");//修改为添加而不是设置
-        configuration.addAllowedHeader("*");//这里很重要，起码需要允许 Access-Control-Allow-Origin
-        configuration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
-*/
 }

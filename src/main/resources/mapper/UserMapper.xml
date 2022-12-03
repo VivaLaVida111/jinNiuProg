@@ -1,34 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.jinniuprog.dao.UserDao">
-<select id="queryAll" resultType="com.example.jinniuprog.dao.UserDao">
-    select * from User
-</select>
-    <select id="getUserById" parameterType="int" resultType="String">
-        select userName from user where id=#{id}
-    </select>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.jinniuprog.mapper.UserMapper">
 
-    <resultMap id="userMap" type="com.example.jinniuprog.entity.User">
-        <id property="id" column="ID"/>
-        <result property="userName" column="userName"/>
-        <result property="password" column="password"/>
-        <collection property="roles" ofType="com.example.jinniuprog.entity.Role">
-            <result column="name" property="name"/>
-        </collection>
-    </resultMap>
-    <select id="findByUserName" parameterType="String" resultMap="userMap">
-        select u.*,r.name from user u
-                                   LEFT JOIN user_role ru on u.id= ru.user_id
-                                   LEFT JOIN `role` r on ru.role_id =r.id
-        where userName = #{username}
-    </select>
-    <select id="updatePassword" parameterType="com.example.jinniuprog.entity.User">
-        update user set password = #{password} where userName = #{userName}
-    </select>
-    <select id="getUserRolesByUserId" parameterType="integer" resultType="com.example.jinniuprog.entity.User">
-        select u.roles
-        from `user` u where u.id =#{Id}
-    </select>
 </mapper>
