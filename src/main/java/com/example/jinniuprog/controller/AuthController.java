@@ -4,6 +4,7 @@ import com.example.jinniuprog.dto.UserLoginParam;
 import com.example.jinniuprog.entity.User;
 import com.example.jinniuprog.service.AuthService;
 //import com.example.jinniuprog.service.InfoService;
+import com.example.jinniuprog.service.InfoService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,10 +20,8 @@ import java.util.Map;
 public class AuthController {
     @Resource
     private AuthService authService;
-    /*
     @Resource
     private InfoService infoService;
-     */
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;
     @Value("${jwt.tokenHead}")
@@ -60,5 +59,15 @@ public class AuthController {
         tokenMap.put("token", token);
         tokenMap.put("tokenHead", tokenHead);
         return tokenMap;
+    }
+
+    @PostMapping("/change_password")
+    public Boolean changePassword(@RequestBody String password) {
+        if (password == null) {
+            return false;
+        }
+        Map<String, String> infoMap = infoService.getInfo();
+        String name = infoMap.get("name");
+        return authService.changePassword(name, password);
     }
 }

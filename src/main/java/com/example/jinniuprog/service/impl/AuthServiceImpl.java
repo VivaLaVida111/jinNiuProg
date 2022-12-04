@@ -80,4 +80,13 @@ public class AuthServiceImpl implements AuthService {
         return token;
     }
 
+    @Override
+    public Boolean changePassword(String name, String password) {
+        User user = getUserByName(name);
+        String encodePassword = passwordEncoder.encode(password);
+        user.setPassword(encodePassword);
+        userMapper.updateById(user);
+        return true;
+    }
+
 }
